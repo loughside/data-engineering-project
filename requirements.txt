@@ -1,0 +1,7 @@
+requests
+azure-storage-file-datalake
+azure-identity
+dbt-fabric
+prefect
+python-dotenv
+pandas
