@@ -32,3 +32,11 @@ models:
     silver:
       +materialized: table
       +schema: silver
+    gold:
+      +materialized: table
+      +schema: gold
+
+seeds:
+  transform:
+    dim_date:
+      +schema: gold
