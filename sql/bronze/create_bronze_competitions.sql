@@ -1,5 +1,5 @@
 
-IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'bronze.competitions')
+IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'competitions' AND schema_id = SCHEMA_ID('bronze'))
   EXEC('
     CREATE TABLE bronze.competitions (
       id INT,
