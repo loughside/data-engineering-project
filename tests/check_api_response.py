@@ -4,20 +4,18 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-api_url = 'https://api.football-data.org/v4/competitions/' 
+api_url = 'https://api.football-data.org/v4/competitions/PL/matches' 
 api_key = os.getenv("FOOTBALL_DATA_API_KEY")
 
 headers = {
-  "Authorization": f"X-Auth-Token {api_key}",
-  "Content-Type": "application/json",
+  "X-Auth-Token": api_key,
   }
-
 
 response = re.get(
   api_url,
   headers=headers
   )
 
-competitions = response.json()['competitions']
+matches = response.json()['matches']
 
-print(competitions[0])
+print(matches[0])
