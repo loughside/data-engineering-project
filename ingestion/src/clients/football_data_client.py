@@ -22,3 +22,16 @@ class FootballDataClient:
           raise Exception(f"API error {response.status_code}")
 
         return response.json()['competitions']
+    
+    def get_matches(self, competition_code, season):
+        try:
+          url = f"{self.BASE_URL}competitions/{competition_code}/matches"
+          headers = {"X-Auth-Token": self.api_key}
+          response = requests.get(url,headers=headers, params={'season': season})
+        except requests.exceptions.RequestException as e:
+            raise Exception(f"Network Error: {e}")
+        
+        if response.status_code != 200:
+          raise Exception(f"API error {response.status_code}")
+
+        return response.json()['matches']
