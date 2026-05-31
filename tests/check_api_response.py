@@ -4,7 +4,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-api_url = 'https://api.football-data.org/v4/competitions/PL/matches' 
+api_url = 'https://api.football-data.org/v4/competitions/PL/standings' 
 api_key = os.getenv("FOOTBALL_DATA_API_KEY")
 
 headers = {
@@ -16,6 +16,6 @@ response = re.get(
   headers=headers
   )
 
-matches = response.json()['matches']
+standings = response.json()['standings']
 
-print(matches[0])
+print(standings[0])

@@ -5,6 +5,8 @@ IF NOT EXISTS (SELECT 1 FROM sys.tables WHERE name = 'matches' AND schema_id = S
     id INT,
     competition_id INT,
     season_id INT,
+    season_start_date DATE,
+    season_end_date DATE,
     matchday INT,
     home_team_id INT,
     home_team_name NVARCHAR(100),

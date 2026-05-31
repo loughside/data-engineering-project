@@ -93,11 +93,13 @@ class SqlLoader:
               (VALUES (
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
                 ?, ?, ?, ?, ?, ?, ?, ?, ?, ?,
-                ?, ?, ?, ?, ?, ?)) AS 
+                ?, ?, ?, ?, ?, ?, ?, ?)) AS 
               source (
                 id,
                 competition_id,
                 season_id,
+                season_start_date,
+                season_end_date,
                 matchday,
                 home_team_id,
                 home_team_name,
@@ -127,6 +129,8 @@ class SqlLoader:
               SET 
                 target.competition_id = source.competition_id,
                 target.season_id = source.season_id,
+                target.season_start_date = source.season_start_date,
+                target.season_end_date = source.season_end_date,
                 target.matchday = source.matchday,
                 target.home_team_id = source.home_team_id,
                 target.home_team_name = source.home_team_name,
@@ -154,6 +158,8 @@ class SqlLoader:
                   id,
                   competition_id,
                   season_id,
+                  season_start_date,
+                  season_end_date,
                   matchday,
                   home_team_id,
                   home_team_name,
@@ -181,6 +187,8 @@ class SqlLoader:
                   source.id,
                   source.competition_id,
                   source.season_id,
+                  source.season_start_date,
+                  source.season_end_date,
                   source.matchday,
                   source.home_team_id,
                   source.home_team_name,
@@ -212,6 +220,8 @@ class SqlLoader:
                 match["id"],
                 match["competition"]["id"],
                 match["season"]["id"],
+                match["season"]["startDate"],
+                match["season"]["endDate"],
                 match["matchday"],
                 match["homeTeam"]["id"],
                 match["homeTeam"]["name"],
