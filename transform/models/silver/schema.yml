@@ -21,3 +21,52 @@ models:
               arguments:
                 to: ref('areas')
                 field: area_id
+
+  - name: teams
+    columns:
+      - name: team_id
+        tests:
+          - unique
+          - not_null
+
+  - name: seasons
+    columns:
+      - name: season_id
+        tests:
+          - unique
+          - not_null
+
+  - name: matches
+    columns:
+      - name: id
+        tests:
+          - unique
+          - not_null
+      - name: season_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('seasons')
+                field: season_id
+      - name: competition_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('competitions')
+                field: id
+      - name: home_team_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('teams')
+                field: team_id
+      - name: away_team_id
+        tests:
+          - not_null
+          - relationships:
+              arguments:
+                to: ref('teams')
+                field: team_id
