@@ -1,4 +1,3 @@
-```markdown
 # ⚽ Football Analytics Data Engineering Project
 
 A medallion architecture data warehouse built on Azure SQL Database, transforming publicly available football data into analytics-ready tables and views for consumption in Power BI.
@@ -70,6 +69,7 @@ Endpoints used: `competitions` and `matches`.
 ---
 
 ## 📁 Repo Structure
+
 ```
 
 data-engineering-project/
@@ -97,7 +97,7 @@ data-engineering-project/
 │ └── dim_date.csv # Date dimension seed file
 └── tests/ # Python connection and API tests
 
-````
+```
 
 ---
 
@@ -114,11 +114,12 @@ data-engineering-project/
 
 1. Clone the repo
 2. Create and activate a virtual environment:
+
 ```powershell
 python -m venv venv
 .\venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-````
+```
 
 3. Create a `.env` file in the project root with the following variables:
 
